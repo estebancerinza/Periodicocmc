@@ -1,0 +1,364 @@
+/* =====================================================================
+   PERIÓDICO ESTUDIANTIL — HOJA DE ESTILOS PRINCIPAL
+   Este archivo se usa en TODAS las páginas (index, noticias, deportes,
+   cultura, galeria, contacto). Si cambias un color aquí, cambia en
+   todo el sitio a la vez.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1) VARIABLES DE COLOR Y TIPOGRAFÍA
+   EDITA AQUÍ para cambiar la paleta de todo el sitio de una sola vez.
+   --------------------------------------------------------------------- */
+:root{
+  --tinta:      #1B2A4A;   /* azul oscuro casi negro: texto y cabecera */
+  --papel:      #FBF7EF;   /* color de fondo tipo "papel periódico"   */
+  --turquesa:   #3AD5E0;   /* tu color original: acentos y links      */
+  --coral:      #FF6B4A;   /* etiquetas de sección / destacados        */
+  --dorado:     #E8B93A;   /* detalles pequeños, subrayados            */
+  --gris-linea: #D9D2C4;   /* líneas divisorias finas estilo diario    */
+  --blanco:     #FFFFFF;
+
+  --fuente-titular: "Playfair Display", Georgia, serif;
+  --fuente-texto:   "Inter", Arial, Helvetica, sans-serif;
+}
+
+/* ---------------------------------------------------------------------
+   2) BASE
+   --------------------------------------------------------------------- */
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  padding:0;
+  background:var(--papel);
+  color:var(--tinta);
+  font-family:var(--fuente-texto);
+  line-height:1.55;
+}
+
+a{ color:var(--tinta); text-decoration:none; }
+a:hover{ color:var(--turquesa); }
+
+img{ max-width:100%; display:block; border-radius:6px; }
+
+.contenedor{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 24px;
+}
+
+/* ---------------------------------------------------------------------
+   3) CABECERA / MASTHEAD
+   EDITA AQUÍ: el nombre del periódico, el eslogan y la fecha están
+   en el HTML de cada página, no aquí. Aquí solo se define el ESTILO.
+   --------------------------------------------------------------------- */
+.masthead{
+  border-bottom:4px solid var(--tinta);
+  background:var(--blanco);
+  padding:28px 0 18px;
+  text-align:center;
+}
+
+.masthead .fecha{
+  font-size:13px;
+  letter-spacing:0.03em;
+  color:#6b6455;
+  margin-bottom:6px;
+}
+
+.masthead h1{
+  font-family:var(--fuente-titular);
+  font-size:clamp(42px, 7vw, 68px);
+  margin:0;
+  font-weight:700;
+}
+
+.masthead .eslogan{
+  font-family:var(--fuente-titular);
+  font-style:italic;
+  font-size:17px;
+  color:#4a4335;
+  margin-top:6px;
+}
+
+/* NAVEGACIÓN — los links a cada sección */
+nav.secciones{
+  background:var(--tinta);
+}
+nav.secciones ul{
+  list-style:none;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:0;
+  padding:0;
+  max-width:1100px;
+  margin:0 auto;
+}
+nav.secciones a{
+  display:block;
+  color:var(--papel);
+  padding:14px 20px;
+  font-size:15px;
+  font-weight:600;
+  border-right:1px solid rgba(255,255,255,0.15);
+}
+nav.secciones li:last-child a{ border-right:none; }
+nav.secciones a:hover{
+  background:var(--turquesa);
+  color:var(--tinta);
+}
+nav.secciones a.activo{
+  background:var(--coral);
+  color:var(--blanco);
+}
+
+/* ---------------------------------------------------------------------
+   4) HISTORIA PRINCIPAL (portada)
+   --------------------------------------------------------------------- */
+.historia-principal{
+  padding:48px 0 32px;
+  border-bottom:1px solid var(--gris-linea);
+}
+.historia-principal .etiqueta{
+  display:inline-block;
+  background:var(--coral);
+  color:var(--blanco);
+  font-size:12px;
+  font-weight:700;
+  padding:4px 10px;
+  border-radius:3px;
+  margin-bottom:14px;
+}
+.historia-principal h2{
+  font-family:var(--fuente-titular);
+  font-size:clamp(28px, 5vw, 44px);
+  margin:0 0 14px;
+  line-height:1.15;
+  max-width:18ch;
+}
+.historia-principal p.bajada{
+  font-size:18px;
+  color:#3d3527;
+  max-width:65ch;
+  margin-bottom:18px;
+}
+.historia-principal img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  margin-bottom:22px;
+}
+.autor-linea{
+  font-size:13px;
+  color:#6b6455;
+}
+
+/* ---------------------------------------------------------------------
+   5) CUADRÍCULA DE ARTÍCULOS (tarjetas)
+   Se usa en index.html (vista previa) y en cada página de sección.
+   --------------------------------------------------------------------- */
+.grid-articulos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:0;
+  padding:36px 0;
+}
+.tarjeta{
+  padding:20px 22px;
+  border-top:1px solid var(--gris-linea);
+  border-left:1px solid var(--gris-linea);
+}
+.grid-articulos .tarjeta:nth-child(-n+3){
+  border-top:none;
+}
+.tarjeta img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  margin-bottom:14px;
+}
+.tarjeta .etiqueta{
+  font-size:11px;
+  font-weight:700;
+  color:var(--coral);
+  letter-spacing:0.03em;
+  margin-bottom:8px;
+  display:block;
+}
+.tarjeta h3{
+  font-family:var(--fuente-titular);
+  font-size:21px;
+  margin:0 0 8px;
+  line-height:1.25;
+}
+.tarjeta p{
+  font-size:15px;
+  color:#4a4335;
+  margin:0 0 10px;
+}
+.tarjeta .leer-mas{
+  font-size:14px;
+  font-weight:700;
+  color:var(--tinta);
+  border-bottom:2px solid var(--turquesa);
+}
+
+/* título de cada bloque de sección, ej. "NOTICIAS" dentro del index */
+.titulo-seccion{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  border-bottom:3px solid var(--tinta);
+  padding-bottom:8px;
+  margin-top:44px;
+}
+.titulo-seccion h2{
+  font-family:var(--fuente-titular);
+  font-size:26px;
+  margin:0;
+}
+.titulo-seccion a{
+  font-size:14px;
+  font-weight:700;
+  color:var(--coral);
+}
+
+/* ---------------------------------------------------------------------
+   6) GALERÍA DE FOTOS
+   --------------------------------------------------------------------- */
+.grid-galeria{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:14px;
+  padding:30px 0 50px;
+}
+.grid-galeria figure{
+  margin:0;
+}
+.grid-galeria img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+.grid-galeria figcaption{
+  font-size:13px;
+  color:#6b6455;
+  margin-top:6px;
+}
+
+/* ---------------------------------------------------------------------
+   7) FORMULARIOS (suscripción / contacto)
+   --------------------------------------------------------------------- */
+.caja-formulario{
+  background:var(--tinta);
+  color:var(--papel);
+  border-radius:10px;
+  padding:36px;
+  margin:40px 0;
+  text-align:center;
+}
+.caja-formulario h2{
+  font-family:var(--fuente-titular);
+  font-size:26px;
+  margin-top:0;
+}
+.caja-formulario p{
+  color:#cfd6e4;
+  margin-bottom:22px;
+}
+form.formulario{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+}
+form.formulario label{
+  display:block;
+  font-size:13px;
+  text-align:left;
+  margin-bottom:4px;
+  color:#cfd6e4;
+}
+form.formulario .campo{
+  display:flex;
+  flex-direction:column;
+  text-align:left;
+}
+form.formulario input[type="text"],
+form.formulario input[type="email"],
+form.formulario textarea,
+form.formulario select{
+  padding:10px 12px;
+  border-radius:6px;
+  border:none;
+  font-family:var(--fuente-texto);
+  font-size:14px;
+  min-width:220px;
+}
+form.formulario textarea{ min-height:100px; resize:vertical; }
+
+form.formulario button,
+form.formulario input[type="submit"]{
+  padding:12px 22px;
+  background:var(--turquesa);
+  border:none;
+  border-radius:6px;
+  color:var(--tinta);
+  font-weight:700;
+  cursor:pointer;
+  align-self:flex-end;
+}
+form.formulario button:hover,
+form.formulario input[type="submit"]:hover{
+  background:var(--dorado);
+}
+
+/* checklist tipo encuesta (viene de tu plantilla original) */
+.encuesta label{
+  display:block;
+  text-align:left;
+  margin:6px 0;
+  color:var(--papel);
+  font-size:14px;
+}
+
+/* ---------------------------------------------------------------------
+   8) PIE DE PÁGINA
+   --------------------------------------------------------------------- */
+footer{
+  background:var(--tinta);
+  color:#cfd6e4;
+  padding:30px 0;
+  margin-top:40px;
+  font-size:14px;
+}
+footer .contenedor{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+}
+footer a{ color:var(--turquesa); }
+
+/* ---------------------------------------------------------------------
+   9) RESPONSIVE — pantallas pequeñas
+   --------------------------------------------------------------------- */
+@media (max-width:640px){
+  nav.secciones ul{ justify-content:flex-start; overflow-x:auto; }
+  .grid-articulos .tarjeta{ border-left:none; }
+  form.formulario button,
+  form.formulario input[type="submit"]{ align-self:stretch; }
+}
+
+/* Accesibilidad: respeta si el usuario pidió menos animaciones */
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
+}
+
+/* foco visible para navegación con teclado */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{
+  outline:3px solid var(--dorado);
+  outline-offset:2px;
+}
