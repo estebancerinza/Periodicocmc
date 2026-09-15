@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — El Folio Estudiantil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="contenedor">
+      <p class="fecha">Edición digital · Actualizado hoy</p>
+      <h1>El Folio Estudiantil</h1>
+      <p class="eslogan">Lo que pasa en el colegio, contado por nosotros</p>
+    </div>
+  </header>
+
+  <nav class="secciones">
+    <ul>
+      <li><a href="index.html">Portada</a></li>
+      <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="deportes.html">Deportes</a></li>
+      <li><a href="cultura.html">Cultura</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="contacto.html" class="activo">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main class="contenedor">
+
+    <div class="titulo-seccion" style="margin-top:36px;">
+      <h2>Escríbenos</h2>
+    </div>
+    <p style="max-width:65ch; font-size:16px; color:#4a4335; margin-bottom:0;">
+      ¿Tienes una noticia, una foto o una idea para el periódico? Cuéntanos
+      aquí abajo. También puedes usar este formulario si quieres unirte
+      al equipo de redacción.
+    </p>
+
+    <!-- =======================================================
+         FORMULARIO DE CONTACTO
+         EDITA AQUÍ: cambia "action" por la dirección real que
+         procesa el formulario (por ejemplo datos.php).
+         ======================================================= -->
+    <section class="caja-formulario">
+      <h2>Formulario de contacto</h2>
+      <form class="formulario" action="datos.php" method="POST">
+        <div class="campo">
+          <label for="fnombre">Tu nombre</label>
+          <input type="text" id="fnombre" name="fnombre" required>
+        </div>
+        <div class="campo">
+          <label for="femail">Tu correo</label>
+          <input type="email" id="femail" name="femail" required>
+        </div>
+        <div class="campo">
+          <label for="fcurso">Tu curso</label>
+          <select name="fcurso" id="fcurso">
+            <option value="">Selecciona</option>
+            <option value="primero">Primero</option>
+            <option value="segundo">Segundo</option>
+            <option value="tercero">Tercero</option>
+            <option value="cuarto">Cuarto</option>
+          </select>
+        </div>
+        <div class="campo" style="width:100%;">
+          <label for="fmensaje">Tu mensaje</label>
+          <textarea id="fmensaje" name="fmensaje" style="width:100%;" required></textarea>
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <!-- =======================================================
+         ENCUESTA / CHECKLIST (esto viene de tu plantilla original)
+         EDITA AQUÍ: cambia las opciones por lo que quieras preguntar,
+         por ejemplo "¿de qué te gustaría que hablemos?"
+         ======================================================= -->
+    <section class="caja-formulario">
+      <h2>¿Sobre qué te gustaría leer más?</h2>
+      <p>Marca las opciones que más te interesen</p>
+      <form class="formulario encuesta" action="datos.php" method="POST">
+        <label><input type="checkbox" name="interes[]" value="noticias">Noticias del colegio</label>
+        <label><input type="checkbox" name="interes[]" value="deportes">Deportes</label>
+        <label><input type="checkbox" name="interes[]" value="cultura">Cultura y arte</label>
+        <label><input type="checkbox" name="interes[]" value="entrevistas">Entrevistas</label>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <p>© 2026 El Folio Estudiantil — hecho por estudiantes, para estudiantes.</p>
+      <p><a href="contacto.html">Escríbenos</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
